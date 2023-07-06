@@ -55,3 +55,13 @@ Route::get('/inserir-usuario', function () {
         return 'Erro ao inserir usuário: ' . $e->getMessage();
     }
 });
+Route::get('/remover-usuario/{id}', function ($id) {
+    try {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return 'Usuário removido com sucesso!';
+    } catch (\Exception $e) {
+        return 'Erro ao remover usuário: ' . $e->getMessage();
+    }
+});
