@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * Cria um novo usuário.
+     *
+     * @param array $userData Os dados para criar o usuário.
+     * @return User A instância do usuário criado.
+     */
+    public static function createUser(array $userData)
+    {
+        return self::create($userData);
+    }
 }
